@@ -2,10 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/partials/Header.astro";
 import Footer from "../components/partials/Footer.astro";
+const base = import.meta.env.BASE_URL; // Obtiene el valor de "base" desde astro.config.mjs
+
 ---
 
 <Layout 
-  title="Jr Dev | Manuel Guillén Silva" 
+  title="Mi CV | Manuel Guillén Silva - Jr Dev" 
   description="Curriculum Vitae de Manuel Guillén Silva. Desarrollador web junior con experiencia en WordPress, SQL y desarrollo frontend."
 >
   <Header />
@@ -28,7 +30,7 @@ import Footer from "../components/partials/Footer.astro";
             </p>
             <p class="text-gray-700 dark:text-gray-300">661539038</p>
             <p class="flex items-center justify-end gap-2">
-              <a href="https://manuelgsil.github.io/portfolio" target="_blank" rel="noopener noreferrer" class="text-cavolo-blue hover:text-cavolo-deep-blue dark:text-cavolo-cream">manuelgsil.github.io</a>
+              <a href="https://manuelgsil.github.io/" target="_blank" rel="noopener noreferrer" class="text-cavolo-blue hover:text-cavolo-deep-blue dark:text-cavolo-cream">manuelgsil.github.io</a>
             </p>
           </div>
         </div>
@@ -186,7 +188,7 @@ import Footer from "../components/partials/Footer.astro";
         <!-- Botón de descarga -->
         <div class="text-center mt-8">
           <a 
-            href="/archives/Cv-MGS-2025.pdf" 
+            href={`${base}/archives/Cv-MGS-2025.pdf`}
             download 
             class="inline-block bg-cavolo-blue hover:bg-cavolo-deep-blue text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
           >
