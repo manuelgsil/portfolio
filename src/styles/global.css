@@ -1,0 +1,15 @@
+/* src/styles/global.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Respeta las preferencias de usuario para reducir movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
