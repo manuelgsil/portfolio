@@ -1,0 +1,298 @@
+---
+import { Image } from "astro:assets";
+const base = import.meta.env.BASE_URL; // Obtiene el valor de "base" desde astro.config.mjs
+
+---
+
+<section
+  id="home"
+  class="min-h-screen flex items-center relative overflow-hidden"
+>
+  <div class="absolute inset-0 z-0">
+    <div
+      class="absolute top-0 right-0 w-1/2 h-1/2 bg-cavolo-yellow opacity-10 rounded-bl-full"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-cavolo-red opacity-10 rounded-tr-full"
+    >
+    </div>
+    <div
+      class="absolute top-1/4 left-1/4 w-16 h-16 bg-cavolo-blue opacity-20 rounded-full animate-float-slow"
+    >
+    </div>
+    <div
+      class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-cavolo-orange opacity-15 rounded-full animate-float"
+    >
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-20 z-10">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div
+        class="order-2 md:order-1 animate-fade-in"
+        style="--animation-delay: 0.2s;"
+      >
+        <div class="space-y-6">
+          <div class="inline-block">
+            <span
+              class="font-mono text-sm bg-cavolo-teal bg-opacity-10 text-cavolo-teal px-3 py-1 rounded-full"
+            >
+            Programación + Literatura  
+            </span>
+          </div>
+
+          <h1
+            class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-cavolo-deep-blue"
+          >
+            <span
+              class="block animate-slide-up"
+              style="--animation-delay: 0.3s;">Manuel</span
+            >
+            <span
+              class="block text-cavolo-red animate-slide-up"
+              style="--animation-delay: 0.4s;">Guillén Silva</span
+            >
+          </h1>
+
+          <p
+            class="text-lg text-gray-700 max-w-lg animate-slide-up"
+            style="--animation-delay: 0.5s;"
+          >
+            Desarrollador Fullstack y graduado en Literaturas Comparadas.
+          </p>
+
+          <div
+            class="flex flex-wrap gap-4 animate-slide-up"
+            style="--animation-delay: 0.6s;"
+          >
+            <a
+              href="#projects"
+              aria-label="Ir a la sección de proyectos"
+              class="inline-flex items-center px-6 py-3 bg-cavolo-red text-white font-medium rounded-lg transition-transform hover:translate-y-[-2px] hover:shadow-lg"
+            >
+              Ver proyectos
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 ml-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+              </svg>
+            </a>
+            <a
+              href="#contact"
+              aria-label="Ir a la sección de contacto"
+              class="inline-flex items-center px-6 py-3 border-2 border-cavolo-deep-blue text-cavolo-deep-blue font-medium rounded-lg transition-colors hover:bg-cavolo-deep-blue hover:text-white"
+            >
+              Contactar
+            </a>
+          </div>
+
+          <div
+            class="flex items-center space-x-4 pt-4 animate-slide-up"
+            style="--animation-delay: 0.7s;"
+          >
+            <a
+              href="https://github.com/manuelgsil"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Enlace a mi perfil de GitHub"
+              class="text-gray-600 hover:text-cavolo-red transition-al transform hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                ></path></svg
+              >
+            </a>
+            <a
+              href="https://www.linkedin.com/in/manuelguillensilva/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Enlace a mi perfil de LinkedIn"
+              class="text-gray-600 hover:text-cavolo-blue transition-all transform hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                ></path></svg
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 md:order-2 flex justify-center">
+        <div class="relative animate-fade-in" style="--animation-delay: 0.4s;">
+          <div
+            class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-cavolo-blue bg-opacity-20 flex items-center justify-center animate-float-slow"
+          >
+            <div
+              class="w-56 h-56 md:w-72 md:h-72 rounded-full bg-white shadow-lg overflow-hidden border-4 border-white transform transition-all duration-500 hover:scale-105"
+            >
+              <div class="w-full h-full relative">
+                <Image
+                src={`${import.meta.env.BASE_URL}/images/foto-perfil.webp`}
+                alt="Foto de perfil"
+                width={400}
+                height={400}
+                format="webp"
+                quality={90}
+                class="object-cover object-center transition-transform duration-700 hover:scale-110"
+                loading={"eager"}
+              />
+              </div>
+            </div>
+          </div>
+
+          <!-- Elementos decorativos con animaciones -->
+          <div
+            class="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-cavolo-yellow flex items-center justify-center animate-pulse"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-6 h-6 text-cavolo-deep-blue"
+              aria-label="Elemento decorativo amarillo"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <line x1="12" y1="2" x2="12" y2="4"></line>
+              <line x1="12" y1="20" x2="12" y2="22"></line>
+              <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
+              <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
+              <line x1="2" y1="12" x2="4" y2="12"></line>
+              <line x1="20" y1="12" x2="22" y2="12"></line>
+              <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
+              <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
+            </svg>
+          </div>
+
+          <div
+            class="absolute -bottom-6 -left-6 w-16 h-16 rounded-full bg-cavolo-red flex items-center justify-center animate-float"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-8 h-8 text-white"
+              aria-label="Elemento decorativo rojo"
+            >
+              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+              <line x1="16" y1="8" x2="2" y2="22"></line>
+              <line x1="17.5" y1="15" x2="9" y2="15"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones mejoradas */
+  @keyframes float {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(3deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+  }
+
+  @keyframes float-slow {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-pulse {
+    animation: pulse 3s infinite;
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+
+  .animate-slide-up {
+    opacity: 0;
+    animation: slide-up 0.8s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+</style>

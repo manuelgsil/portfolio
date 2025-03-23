@@ -1,0 +1,177 @@
+---
+const base = import.meta.env.BASE_URL; // Obtiene el valor de "base" desde astro.config.mjs
+const navItems = [
+  { name: 'Inicio', url: `${base}` },
+  { name: 'Sobre mí', url: `${base}/#about` },
+  { name: 'Habilidades', url: `${base}/#skills` },
+  { name: 'Proyectos', url: `${base}/#projects` },
+  { name: 'Contacto', url: `${base}/#contact` },
+  { name: 'CV', url: `${base}/cv` },
+];
+---
+
+<header 
+  class="fixed w-full z-50 transition-all duration-300" 
+  id="navbar" 
+  transition:animate="slide"
+  aria-label="Navegación principal"
+>
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a 
+      href={base}
+      class="text-cavolo-deep-blue group" 
+      transition:name="logo"
+      aria-label="Manuel Guillén Silva - Inicio"
+    >
+      <div class="flex items-center space-x-2">
+        <div class="relative">
+          <div class="w-10 h-10 rounded-full bg-cavolo-red flex items-center justify-center transform transition-transform group-hover:rotate-12">
+            <span class="font-display font-bold text-white text-xl">M</span>
+          </div>
+          <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-cavolo-yellow flex items-center justify-center transform transition-transform group-hover:scale-110">
+            <span class="font-display font-bold text-cavolo-deep-blue text-xs">G</span>
+          </div>
+          <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-cavolo-blue flex items-center justify-center transform transition-transform group-hover:scale-110">
+            <span class="font-display font-bold text-white text-xs">S</span>
+          </div>
+        </div>
+        <span class="font-display font-bold text-lg hidden md:block">Manuel Guillén Silva</span>
+      </div>
+    </a>
+    
+    <nav class="hidden md:block">
+      <ul class="flex space-x-6">
+        {navItems.map(item => (
+          <li>
+            <a 
+              href={item.url} 
+              class="text-cavolo-deep-blue font-sans font-medium text-sm relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cavolo-red after:transition-all hover:after:w-full"
+              transition:animate="slide"
+              aria-label={item.name}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <button 
+      id="menu-toggle" 
+      class="md:hidden text-cavolo-deep-blue"
+      aria-label="Abrir menú móvil"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+  </div>
+  
+  <div 
+    id="mobile-menu" 
+    class="hidden md:hidden bg-white/95 backdrop-blur-sm shadow-lg absolute w-full"
+    aria-hidden="true"
+  >
+    <div class="container mx-auto px-4 py-3">
+      <ul class="space-y-3">
+        {navItems.map(item => (
+          <li>
+            <a 
+              href={item.url} 
+              class="block text-cavolo-deep-blue font-sans font-medium py-2 border-b border-gray-100 hover:text-cavolo-red"
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Function to initialize the navbar behavior
+  function initNavbar() {
+    let navbar = document.getElementById('navbar');
+    let menuToggle = document.getElementById('menu-toggle');
+    let mobileMenu = document.getElementById('mobile-menu');
+
+    if (!navbar || !menuToggle || !mobileMenu) {
+      console.warn('Navbar elements not found');
+      return;
+    }
+
+    // Clone and replace elements to remove existing event listeners
+    const replaceElement = (element: HTMLElement) => {
+      const newElement = element.cloneNode(true) as HTMLElement;
+      element.parentNode?.replaceChild(newElement, element);
+      return newElement;
+    };
+
+    menuToggle = replaceElement(menuToggle);
+    mobileMenu = replaceElement(mobileMenu);
+
+    // Function to update navbar style on scroll
+    const updateNavbarStyle = () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-md');
+      } else {
+        navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-md');
+      }
+    };
+
+    // Execute on initialization to set the correct state
+    updateNavbarStyle();
+
+    // Update on scroll
+    window.addEventListener('scroll', updateNavbarStyle);
+
+    // Mobile menu toggle
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.setAttribute('aria-hidden', isExpanded.toString());
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close mobile menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initNavbar);
+
+  // Reinitialize after each Astro page transition
+  document.addEventListener('astro:page-load', initNavbar);
+</script>
+
+<style>
+  /* Estilos para el efecto de transición del navbar */
+  #navbar {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  
+  /* Efecto de hover para los elementos de navegación */
+  nav a:hover {
+    color: var(--cavolo-red);
+  }
+</style>
+

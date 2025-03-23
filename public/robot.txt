@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manuelgsil.github.io/portfolio/sitemap-index.xml
+

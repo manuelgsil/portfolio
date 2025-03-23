@@ -1,0 +1,204 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/partials/Header.astro";
+import Footer from "../components/partials/Footer.astro";
+const base = import.meta.env.BASE_URL; // Obtiene el valor de "base" desde astro.config.mjs
+
+---
+
+<Layout 
+  title="Currículum | Manuel Guillén Silva | Desarrollador Web " 
+  description="Curriculum Vitae de Manuel Guillén Silva. Desarrollador web junior especializado en desarrollo frontend con experiencia en JavaScript y diseño de interfaces."
+>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <section class="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+      <div class="p-8">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-8">
+          <div>
+            <h1 class="text-3xl font-display font-bold text-cavolo-deep-blue dark:text-white">Manuel Guillén Silva</h1>
+            <p class="text-xl text-cavolo-blue dark:text-cavolo-cream mt-2">JR DEV</p>
+          </div>
+          
+          <div class="mt-4 md:mt-0 space-y-1 text-right">
+            <p class="flex items-center justify-end gap-2">
+              <a href="https://linkedin.com/in/manuelguillensilva" target="_blank" rel="noopener noreferrer" class="text-cavolo-blue hover:text-cavolo-deep-blue dark:text-cavolo-cream">linkedin.com/in/manuelguillensilva</a>
+            </p>
+            <p class="flex items-center justify-end gap-2">
+              <a href="mailto:manuelguillen93@gmail.com" class="text-gray-700 dark:text-gray-300">manuelguillen93@gmail.com</a>
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">661539038</p>
+            <p class="flex items-center justify-end gap-2">
+              <a href="https://github.com/manuelgsil/" target="_blank" rel="noopener noreferrer" class="text-cavolo-blue hover:text-cavolo-deep-blue dark:text-cavolo-cream">github.com/manuelgsil</a>
+            </p>
+          </div>
+        </div>
+        
+        <!-- Formación académica -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-cavolo-blue dark:text-cavolo-cream mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+            Formación académica
+          </h2>
+          
+          <div class="mb-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold">F.P.G.S. | Desarrollo de Aplicaciones Web</h3>
+              <span class="text-sm text-gray-600 dark:text-gray-400">09/2022 – 03/2025</span>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300">IES Punta del Verde</p>
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold">IFCT 0310 Administración de Bases de Datos (650h)</h3>
+              <span class="text-sm text-gray-600 dark:text-gray-400">02/2022 – 10/2022</span>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300">Core Networks Sevilla</p>
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold">Literaturas Comparadas</h3>
+              <span class="text-sm text-gray-600 dark:text-gray-400">2013 – 2017</span>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300">Universidad de Granada</p>
+          </div>
+        </div>
+        
+        <!-- Experiencia -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-cavolo-blue dark:text-cavolo-cream mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+            Experiencia Laboral
+          </h2>
+          
+          <div class="mb-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold">Desarrollador (Prácticas DAW)</h3>
+              <span class="text-sm text-gray-600 dark:text-gray-400">11/2024 – 03/2025</span>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 mb-2">DSS NETWORKS – Sevilla</p>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300">
+              <li>Soporte en la refactorización y optimización de código.</li>
+              <li>Mantenimiento y personalización de sitios en WordPress.</li>
+              <li>Corrección de errores y pruebas básicas de software.</li>
+              <li>Implementación de pequeñas mejoras en proyectos existentes.</li>
+              <li>Colaboración con el equipo en el desarrollo de nuevas funcionalidades.</li>
+              <li>Configuración y ajuste de entornos de desarrollo.</li>
+            </ul>
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold">Técnico informático (Prácticas IFCT)</h3>
+              <span class="text-sm text-gray-600 dark:text-gray-400">09/2022 – 10/2022</span>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 mb-2">Grupo EULEN – SEVILLA, ANDALUCÍA, ESPAÑA</p>
+            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300">
+              <li>Consultas y actualizaciones básicas en SQL</li>
+              <li>Soporte técnico en call center.</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Idiomas -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-cavolo-blue dark:text-cavolo-cream mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+            Idiomas
+          </h2>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+              <p class="font-medium">Español</p>
+              <p class="text-sm text-gray-700 dark:text-gray-300">Nativo</p>
+            </div>
+            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+              <p class="font-medium">Inglés</p>
+              <p class="text-sm text-gray-700 dark:text-gray-300">B2</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Competencias -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-cavolo-blue dark:text-cavolo-cream mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+            Competencias
+          </h2>
+          
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-block px-3 py-1 bg-cavolo-blue/10 text-cavolo-blue dark:bg-cavolo-blue/20 dark:text-cavolo-cream rounded-full text-sm">#Tolerancia al estrés</span>
+            <span class="inline-block px-3 py-1 bg-cavolo-teal/10 text-cavolo-teal dark:bg-cavolo-teal/20 dark:text-cavolo-cream rounded-full text-sm">#Empatía</span>
+            <span class="inline-block px-3 py-1 bg-cavolo-orange/10 text-cavolo-orange dark:bg-cavolo-orange/20 dark:text-cavolo-cream rounded-full text-sm">#Resolutivo</span>
+            <span class="inline-block px-3 py-1 bg-cavolo-purple/10 text-cavolo-purple dark:bg-cavolo-purple/20 dark:text-cavolo-cream rounded-full text-sm">#Gestión del tiempo</span>
+            <span class="inline-block px-3 py-1 bg-cavolo-red/10 text-cavolo-red dark:bg-cavolo-red/20 dark:text-cavolo-cream rounded-full text-sm">#Trabajo en equipo</span>
+            <span class="inline-block px-3 py-1 bg-cavolo-yellow/10 text-cavolo-orange dark:bg-cavolo-yellow/20 dark:text-cavolo-cream rounded-full text-sm">#Flexibilidad</span>
+            <span class="inline-block px-3 py-1 bg-cavolo-deep-blue/10 text-cavolo-deep-blue dark:bg-cavolo-deep-blue/20 dark:text-cavolo-cream rounded-full text-sm">#Pensamiento crítico</span>
+          </div>
+        </div>
+        
+        <!-- Habilidades técnicas -->
+        <div class="mb-8">
+            <h2 class="text-xl font-bold text-cavolo-blue dark:text-cavolo-cream mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+              Habilidades Técnicas
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-cavolo-blue/10 dark:bg-cavolo-blue/20 p-4 rounded-lg border border-cavolo-blue/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">Lenguajes de Programación</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">JavaScript, PHP, Java, Python</p>
+              </div>
+              
+              <div class="bg-cavolo-red/10 dark:bg-cavolo-red/20 p-4 rounded-lg border border-cavolo-red/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">Frontend</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">HTML, CSS, JavaScript, Tailwind CSS</p>
+              </div>
+              
+              <div class="bg-cavolo-teal/10 dark:bg-cavolo-teal/20 p-4 rounded-lg border border-cavolo-teal/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">Backend</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Laravel, Django</p>
+              </div>
+              
+              <div class="bg-cavolo-yellow/10 dark:bg-cavolo-yellow/20 p-4 rounded-lg border border-cavolo-yellow/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">Bases de Datos</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">SQL, MySQL, PostgreSQL</p>
+              </div>
+              
+              <div class="bg-cavolo-purple/10 dark:bg-cavolo-purple/20 p-4 rounded-lg border border-cavolo-purple/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">Frameworks y Librerías</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Laravel, Django, Astro, React</p>
+              </div>
+              
+              <div class="bg-cavolo-orange/10 dark:bg-cavolo-orange/20 p-4 rounded-lg border border-cavolo-orange/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">Herramientas y Control de Versiones</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Git, GitHub, VS Code</p>
+              </div>
+              
+              <div class="bg-cavolo-deep-blue/10 dark:bg-cavolo-deep-blue/20 p-4 rounded-lg border border-cavolo-deep-blue/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">CMS</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">WordPress</p>
+              </div>
+              
+              <div class="bg-cavolo-pink/10 dark:bg-cavolo-pink/20 p-4 rounded-lg border border-cavolo-pink/20">
+                <p class="font-medium text-cavolo-deep-blue dark:text-white mb-2">Testing</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">JUnit5</p>
+              </div>
+            </div>
+          </div>
+        
+        <!-- Botón de descarga -->
+        <div class="text-center mt-8">
+          <a 
+            href={`${base}/archives/Cv-MGS-2025.pdf`}
+            download 
+            class="inline-block bg-cavolo-blue hover:bg-cavolo-deep-blue text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+          >
+            Descargar CV en PDF
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+

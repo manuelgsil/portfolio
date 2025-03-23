@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import SEOHead from "../components/partials/SEOhead.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage,
+} = Astro.props;
+
+const currentUrl = Astro.url.href;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- SEO y metadatos -->
+    <SEOHead
+    title={title}
+    description={description}
+    ogImage={ogImage}
+    canonicalURL={currentUrl}
+  />
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Montserrat:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Datos estructurados Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Manuel Guillén Silva",
+        "url": "https://manuelgsil.github.io/portfolio",
+        "jobTitle": "Desarrollador Web",
+        "sameAs": [
+          "https://github.com/manuelgsil",
+          "https://linkedin.com/in/manuelguillensilva"
+        ],
+        "description": "Desarrollador web con formación en literatura. Combino creatividad y lógica para crear experiencias digitales atractivas y funcionales."
+      }
+    </script>
+
+    <ClientRouter />
+  </head>
+  <body class="bg-cavolo-cream min-h-screen">
+    <div
+      class="pattern-overlay fixed inset-0 z-0 opacity-5 pointer-events-none"
+    >
+    </div>
+    <div class="relative z-10">
+      <slot />
+    </div> 
+  </body>
+</html>
+
+<style>
+
+</style>
