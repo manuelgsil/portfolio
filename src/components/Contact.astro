@@ -24,7 +24,6 @@
       <div class="grid md:grid-cols-5 gap-8">
         <div class="md:col-span-2 space-y-6">
           <div class="bg-cavolo-cream rounded-xl p-6 relative overflow-hidden">
-            <!-- Decorative elements inspired by Ricardo Cavolo -->
             <div
               class="absolute -top-10 -right-10 w-20 h-20 rounded-full bg-cavolo-yellow opacity-20"
             >
@@ -37,7 +36,7 @@
             <h3
               class="font-display text-xl font-bold text-cavolo-deep-blue mb-4"
             >
-              Información de Contacto
+              Información de contacto
             </h3>
 
             <div class="space-y-4">
@@ -63,7 +62,6 @@
                 <div>
                   <p class="font-medium text-cavolo-deep-blue">Email</p>
                   <a
-                    href="mailto:contacto@manuelguillen.com"
                     class="text-gray-600 hover:text-cavolo-red transition-colors"
                     >manuelguillen93@gmail.com</a
                   >
@@ -153,10 +151,9 @@
 
         <div class="md:col-span-3">
           <form
+            id="contact-form"
             class="bg-white rounded-xl p-6 shadow-lg border border-gray-100"
-            action="mailto:manuelguillen93@gmail.com"
-            method="POST"
-            enctype="text/plain"
+            onsubmit="sendEmail"
           >
             <h3
               class="font-display text-xl font-bold text-cavolo-deep-blue mb-6"
@@ -197,6 +194,7 @@
                 />
               </div>
             </div>
+            <input type="text" id="honeypot" name="honeypot" class="hidden" />
 
             <div class="mb-6">
               <label
@@ -228,6 +226,7 @@
                 placeholder="Tu mensaje..."
                 required></textarea>
             </div>
+            <div class="g-recaptcha" data-sitekey="6Lewd_4qAAAAAAJaAVwVDqzkcUyHf0zFwmQJuwst"></div>
 
             <button
               type="submit"
@@ -249,9 +248,19 @@
                 ></path>
               </svg>
             </button>
+            <div id="form-message" class="hidden text-center mt-4"></div>
           </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  import { sendEmail } from "./../utils/sendEmail.js";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    if (form) form.addEventListener("submit", sendEmail);
+  });
+</script>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6Lewd_4qAAAAAAJaAVwVDqzkcUyHf0zFwmQJuwst"></script>
