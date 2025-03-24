@@ -1,3 +1,7 @@
+---
+
+---
+
 <section id="contact" class="py-20 bg-white relative">
   <div
     class="absolute top-0 left-0 w-full h-20 bg-cavolo-cream"
@@ -153,7 +157,6 @@
           <form
             id="contact-form"
             class="bg-white rounded-xl p-6 shadow-lg border border-gray-100"
-            onsubmit=sendEmail
           >
             <h3
               class="font-display text-xl font-bold text-cavolo-deep-blue mb-6"
@@ -226,8 +229,6 @@
                 placeholder="Tu mensaje..."
                 required></textarea>
             </div>
-            <div class="g-recaptcha" data-sitekey="6Lewd_4qAAAAAAJaAVwVDqzkcUyHf0zFwmQJuwst"></div>
-
             <button
               type="submit"
               class="w-full px-6 py-3 bg-cavolo-red text-white font-medium rounded-lg transition-transform hover:translate-y-[-2px] hover:shadow-lg flex items-center justify-center"
@@ -256,7 +257,101 @@
   </div>
 </section>
 <script>
-  import { sendEmail } from "./../utils/sendEmail.js";
+  import emailjs from "emailjs-com";
+
+  function sendEmail(event: SubmitEvent): void {
+    event.preventDefault(); // Evita la recarga de la página
+
+    const nameInput = document.getElementById(
+      "name"
+    ) as HTMLInputElement | null;
+    const emailInput = document.getElementById(
+      "email"
+    ) as HTMLInputElement | null;
+    const subjectInput = document.getElementById(
+      "subject"
+    ) as HTMLInputElement | null;
+    const messageInput = document.getElementById(
+      "message"
+    ) as HTMLTextAreaElement | null;
+    const formMessage = document.getElementById(
+      "form-message"
+    ) as HTMLElement | null;
+
+    if (
+      !nameInput ||
+      !emailInput ||
+      !subjectInput ||
+      !messageInput ||
+      !formMessage
+    ) {
+      console.error("No se encontraron todos los elementos del formulario.");
+      return;
+    }
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const subject = subjectInput.value.trim();
+    const message = messageInput.value.trim();
+    const honeypot =
+      (document.getElementById("honeypot") as HTMLInputElement | null)?.value ||
+      "";
+
+    if (honeypot) {
+      console.warn("Bot detectado. Envío descartado.");
+      return;
+    }
+
+    // Validación de campos
+    if (!name || !email || !subject || !message) {
+      formMessage.textContent = "Por favor, completa todos los campos.";
+      formMessage.classList.remove("hidden");
+      formMessage.classList.add("text-red-600");
+      return;
+    }
+
+    // Validación de formato de correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      formMessage.textContent =
+        "Por favor, ingresa un correo electrónico válido.";
+      formMessage.classList.remove("hidden");
+      formMessage.classList.add("text-red-600");
+      return;
+    }
+
+    // Verificar que emailjs está disponible
+    if (typeof emailjs === "undefined") {
+      console.error("emailjs no está definido.");
+      return;
+    }
+
+    // Envío del formulario
+    emailjs
+      .sendForm(
+        "service_6mbydpl",
+        "template_q3ofebe",
+        event.target as HTMLFormElement,
+        "3L-rIpS3MCEAtsbx4"
+      )
+      .then(
+        (result: { text: string }) => {
+          formMessage.innerHTML = "¡Correo enviado!<br>Muchas gracias.";
+          formMessage.classList.remove("hidden");
+          formMessage.classList.add("text-green-600");
+          (event.target as HTMLFormElement).reset();
+          setTimeout(() => {
+            formMessage.classList.add("hidden");
+          }, 5000);
+        },
+        (error: { text: string }) => {
+          formMessage.textContent =
+            "Hubo un error al enviar el correo. Inténtalo de nuevo.";
+          formMessage.classList.remove("hidden");
+          formMessage.classList.add("text-red-600");
+        }
+      );
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contact-form");
